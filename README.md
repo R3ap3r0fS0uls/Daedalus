@@ -1,3 +1,7 @@
+# What The KeepLoadout Mod Does
+Keep in mind, the mod only works in offline mode, due to how the mod edits your local save file. 
+* This mod allows you to bring any item up from prospect/outpost and bring it into orbit.
+
 # Installation Instructions
 * At the moment you'll have to compile the mod and mod loader yourself.
 * Install Visual Studio and open the DaedalusLoader folder and then open Daedalus.sln in visual studio.
