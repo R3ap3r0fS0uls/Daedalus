@@ -25,46 +25,15 @@ namespace Hooks
 			UE4::FString ModName;
 		};
 
-		PVOID(*origProcessFunction)(UE4::UObject*, UE4::FFrame*, void* const);
-		PVOID hookProcessFunction(UE4::UObject* obj, UE4::FFrame* Frame, void* const Result)
+		PVOID(*origProcessFunction)(UE4::UObject* pCallObject, UE4::UFunction* pUFunc, void* pParms);
+		PVOID hookProcessFunction(UE4::UObject* pCallObject, UE4::UFunction* pUFunc, void* pParms)
 		{
 			PVOID ret = nullptr;
 			if (!GameStateClassInitNotRan)
 			{
-				if (Frame->Node->GetName() == "PrintToModLoader")
-				{
-					auto msg = Frame->GetInputParams<PrintStringParams>()->Message;
-					if (msg.IsValid())
-					{
-						Log::Print("%s", msg.ToString().c_str());
-					}
-				}
-				if (Frame->Node->GetName() == "GetPersistentObject")
-				{
-					auto ModName = Frame->GetInputParams<GetPersistentObject>()->ModName;
-					for (size_t i = 0; i < Global::GetGlobals()->ModInfoList.size(); i++)
-					{
-						auto ModInfo = Global::GetGlobals()->ModInfoList[i];
-						if (ModName.c_str() == ModInfo.ModName)
-						{
-							if (ModInfo.PersistentObject)
-							{
-								UE4::SetVariable<UE4::UObject*>(obj, "GetPersistentObjectReturnValue", ModInfo.PersistentObject);
-							}
-						}
-					}
-				}
-				for (size_t i = 0; i < Global::GetGlobals()->GetBPFunctionWrappers().size(); i++)
-				{
-					if (Frame->Node->GetName() == Global::GetGlobals()->GetBPFunctionWrappers()[i].FunctionName)
-					{
-						reinterpret_cast<void(*)(UE4::UObject*, UE4::FFrame*, void*)> (Global::GetGlobals()->GetBPFunctionWrappers()[i].FuncPtr) (obj, Frame, (void*)Result);
-						return nullptr;
-					}
-				}
+				Global::GetGlobals()->eventSystem.dispatchEvent("ProcessFunction", pCallObject, pUFunc);
 			}
-			return origProcessFunction(obj, Frame, Result);
-
+			return origProcessFunction(pCallObject, pUFunc, pParms);
 		}
 
 		PVOID(*origInitGameState)(void*);
@@ -114,7 +83,7 @@ namespace Hooks
 						CurrentModActor->CallFunctionByNameWithArguments(L"ModCleanUp", nullptr, NULL, true);
 					}
 				}
-				
+
 				Global::GetGlobals()->ModInfoList[i].CurrentModActor = nullptr;
 				Global::GetGlobals()->ModInfoList[i].ModButtons.clear();
 			}
@@ -267,7 +236,7 @@ namespace Hooks
 			}
 			return origBeginPlay(Actor);
 		}
-	};
+	}
 
 	DWORD __stdcall InitHooks(LPVOID)
 	{
@@ -280,6 +249,8 @@ namespace Hooks
 		Log::Info("ScanLoadedPaks Setup");
 		MinHook::Add(GameProfile::SelectedGameProfile.GameStateInit, &HookedFunctions::hookInitGameState, &HookedFunctions::origInitGameState, "AGameModeBase::InitGameState");
 		MinHook::Add(GameProfile::SelectedGameProfile.BeginPlay, &HookedFunctions::hookBeginPlay, &HookedFunctions::origBeginPlay, "AActor::BeginPlay");
+		//MinHook::Add(GameProfile::SelectedGameProfile.ProcessEvent, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "UObject::ProcessEvent");
+		MinHook::Add(GameProfile::SelectedGameProfile.ProcessEventActor, &HookedFunctions::hookProcessFunction, &HookedFunctions::origProcessFunction, "AActor::ProcessEvent");
 		LoaderUI::GetUI()->CreateUILogicThread();
 		if (!GameProfile::SelectedGameProfile.bDelayGUISpawn)
 		{
