@@ -8,10 +8,10 @@ public:
 	//Basic Mod Info
 	ExampleMod()
 	{
-		ModName = "ExampleMod"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
+		ModName = "KeepLoadout"; // Mod Name -- If Using BP ModActor, Should Be The Same Name As Your Pak
 		ModVersion = "1.0.0"; // Mod Version
-		ModDescription = "HAHAHAHA MOD GO BURR"; // Mod Description
-		ModAuthors = "RussellJ"; // Mod Author
+		ModDescription = "Allows any item to be brought back from an prospect or outpost."; // Mod Description
+		ModAuthors = "R3ap3r"; // Mod Author
 		ModLoaderVersion = "2.2.0";
 
 		// Dont Touch The Internal Stuff
@@ -19,11 +19,15 @@ public:
 		CompleteModCreation();
 	}
 
+	const char* PEAOB = "40 55 56 57 41 54 41 55 41 56 41 57 48 81 EC F0 00 00 00 48 8D 6C 24 30 48 89";
+
 	//Called When Internal Mod Setup is finished
 	virtual void InitializeMod() override;
 
 	//InitGameState Call
 	virtual void InitGameState() override;
+
+	virtual void ProcessFunction(UE4::UObject* pCallObject, UE4::UFunction* pUFunc) override;
 
 	//Beginplay Hook of Every Actor
 	virtual void BeginPlay(UE4::AActor* Actor) override;
