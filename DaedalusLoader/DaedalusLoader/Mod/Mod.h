@@ -28,6 +28,8 @@ public:
 	//InitGameState Call
 	virtual void InitGameState();
 
+	virtual void ProcessFunction(UE4::UObject* pCallObject, UE4::UFunction* pUFunc);
+
 	//Call ImGui Here
 	virtual void DrawImGui();
 
