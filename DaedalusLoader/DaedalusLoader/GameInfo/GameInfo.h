@@ -53,7 +53,10 @@ public:
 	bool IsUsing4_22 = false;
 
 	bool IsFunctionPatterns = false;
+
 	DWORD64 ProcessEvent = 0x0;
+	DWORD64 ProcessEventActor = 0x0;
+
 	DWORD64 CreateDefaultObject = 0x0;
 	DWORD64 GameStateInit = 0x0;
 	DWORD64 BeginPlay = 0x0;
