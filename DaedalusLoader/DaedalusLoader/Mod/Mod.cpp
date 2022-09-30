@@ -16,6 +16,11 @@ namespace CallBackHandler
 		Mod::ModRef->InitGameState();
 	}
 
+	void CallBackProcessFunction(UE4::UObject* pCallObject, UE4::UFunction* pUFunc)
+	{
+		Mod::ModRef->ProcessFunction(pCallObject, pUFunc);
+	}
+
 	void CallBackDrawImGui()
 	{
 		Mod::ModRef->DrawImGui();
@@ -40,6 +45,10 @@ void Mod::OnModMenuButtonPressed()
 {
 }
 
+void Mod::ProcessFunction(UE4::UObject* pCallObject, UE4::UFunction* pUFunc)
+{
+}
+
 void Mod::BeginPlay(UE4::AActor* Actor)
 {
 }
@@ -58,6 +67,7 @@ void Mod::DrawImGui()
 
 void Mod::SetupHooks()
 {
+	Global::GetGlobals()->eventSystem.registerEvent(new Event<UE4::UObject*, UE4::UFunction*>("ProcessFunction", &CallBackHandler::CallBackProcessFunction));
 	Global::GetGlobals()->eventSystem.registerEvent(new Event<UE4::AActor*>("BeginPlay", &CallBackHandler::CallBackBeginPlay));
 	Global::GetGlobals()->eventSystem.registerEvent(new Event<>("InitGameState", &CallBackHandler::CallBackInitGameState));
 	Global::GetGlobals()->eventSystem.registerEvent(new Event<std::wstring, UE4::AActor*>("PostBeginPlay", &CallBackHandler::CallBackPostBeginPlay));
