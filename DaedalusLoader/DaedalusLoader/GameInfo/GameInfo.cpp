@@ -261,7 +261,22 @@ void SetupProfile()
     }
     Log::Info("CallFunctionByNameWithArguments: 0x%p", (void*)GameProfile::SelectedGameProfile.CallFunctionByNameWithArguments);
 
+    auto ProcessEventActor = Pattern::Find("75 0E ? ? ? 48 ? ? 48 ? ? E8 ? ? ? ? 48 8B ? 24 ? 48 8B ? 24 38 48 8B ? 24 40");
+
+    ProcessEventActor = (PBYTE)DetourFindFunction(GAME_EXECUTABLE_NAME, "AActor::ProcessEvent");
+    if (ProcessEventActor != nullptr)
+    {
+        // no need to convert address pointer due to PDB lookup giving us real address
+        GameProfile::SelectedGameProfile.ProcessEventActor = (DWORD64)ProcessEventActor;
+    }
+    else
+    {
+        Log::Error("ProcessEventActor NOT FOUND!");
+    }
+    Log::Info("ProcessEventActor: 0x%p", (void*)GameProfile::SelectedGameProfile.ProcessEventActor);
+
     auto ProcessEvent = Pattern::Find("75 0E ? ? ? 48 ? ? 48 ? ? E8 ? ? ? ? 48 8B ? 24 ? 48 8B ? 24 38 48 8B ? 24 40");
+
     ProcessEvent += 0xB;
     if (ProcessEvent != nullptr)
     {
