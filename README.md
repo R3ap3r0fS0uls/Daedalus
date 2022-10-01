@@ -27,3 +27,4 @@ who have made profiles for which I've pulled offsets.
   * [feather-ini-parser](https://github.com/Turbine1991/cpp-feather-ini-parser)
   * [Minhook](https://github.com/TsudaKageyu/minhook)
   * [ImGui](https://github.com/ocornut/imgui)
+  * [JsonCPP](https://jsoncpp.docsforge.com)
