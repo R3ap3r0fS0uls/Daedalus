@@ -7,8 +7,7 @@ Keep in mind, the mod only works in offline mode, due to how the mod edits your 
 * Install Visual Studio and open the DaedalusLoader folder and then open Daedalus.sln in visual studio.
 * Click the green arrow at the top of the visual studio window, then repeat the process for the rest of the projects in the Soultion explorer on the right.  Also, disregard the error related to not being able to open dll.
 * Now open DaedalusLoader/x64/Release in file explorer, and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64.
-* Then, in that same folder, create a folder and call it "mods", then copy KeepLoadout.dll from the 64x folder into it.
-* Now you should be abe to start the game and see "Core Mod Created: KeepLoadout", in the DaedalusLoader console window.
+* Then, in that same folder, create a folder and call it "mods", this is where you will put .dll mods.
 
 # Daedalus
 A modloader for [Icarus](https://store.steampowered.com/app/1149460/ICARUS/) for blueprint and
