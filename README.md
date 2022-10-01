@@ -6,7 +6,7 @@ Keep in mind, for now the only mods you'll be able to use are mods found here.
 * At the moment you'll have to compile the mod and mod loader yourself.
 * Install Visual Studio and open the DaedalusLoader folder and then open Daedalus.sln in visual studio.
 * Click the green arrow at the top of the visual studio window, then repeat the process for the rest of the projects in the Soultion explorer on the right.  Also, disregard the error related to not being able to open dll.
-* Now open DaedalusLoader/x64/Release in file explorer, and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64.
+* Now open DaedalusLoader/x64/Release in file explorer, and copy "DaedalusLoader.dll" and "xinput1_3.dll" into (Icarus-Root)/Icarus/Binaries/Win64.
 * Then, in that same folder, create a folder and call it "mods", this is where you will put .dll mods.
 
 # Daedalus
