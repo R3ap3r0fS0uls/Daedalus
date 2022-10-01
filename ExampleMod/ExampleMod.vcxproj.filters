@@ -25,11 +25,17 @@
     <ClCompile Include="..\DaedalusLoader\UE4\CoreUObject_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="dist\jsoncpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExampleMod.h">
       <Filter>Mod</Filter>
     </ClInclude>
     <ClInclude Include="..\DaedalusLoader\UE4\Ue4.hpp" />
+    <ClInclude Include="SDK.hpp">
+      <Filter>Mod</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
