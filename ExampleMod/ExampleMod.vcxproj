@@ -32,6 +32,7 @@
     <ProjectGuid>{a1bbee5e-6f8a-46a1-a489-75aa621e1b5a}</ProjectGuid>
     <RootNamespace>ExampleMod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>KeepLoadout</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -103,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\UE4;$(SolutionDir)\UnrealEngineModLoader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;$(SolutionDir)\UE4;$(SolutionDir)\UnrealEngineModLoader;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -149,7 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;EXAMPLEMOD_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\MinHook\;$(SolutionDir)\UE4;$(SolutionDir)\UnrealEngineModLoader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;$(SolutionDir)\MinHook\;$(SolutionDir)\UE4;$(SolutionDir)\UnrealEngineModLoader;%(AdditionalIncludeDirectories);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
@@ -161,15 +164,27 @@
       <AdditionalDependencies>$(SolutionDir)MinHook\lib\libMinHook-x64-v141-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\bucks\Desktop\Daedalus-master\ExampleMod\include;;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\DaedalusLoader\UE4\Basic.cpp" />
     <ClCompile Include="..\DaedalusLoader\UE4\CoreUObject_functions.cpp" />
+    <ClCompile Include="dist\jsoncpp.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ExampleMod.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DaedalusLoader\UE4\Ue4.hpp" />
     <ClInclude Include="ExampleMod.h" />
+    <ClInclude Include="SDK.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DaedalusLoader\DaedalusLoader.vcxproj">
