@@ -1,6 +1,6 @@
 # Where To Find Mods
 Keep in mind, for now the only mods you'll be able to use are mods found here.
-  * [My Mods]([https://jsoncpp.docsforge.com](https://github.com/R3ap3r0fS0uls/Daedalus-Mods))
+  * [My Mods]((https://github.com/R3ap3r0fS0uls/Daedalus-Mods))
   
 # Installation Instructions
 * At the moment you'll have to compile the mod and mod loader yourself.
