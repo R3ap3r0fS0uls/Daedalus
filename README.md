@@ -1,10 +1,10 @@
-# Where To Find Mods
-Keep in mind, for now the only mods you'll be able to use are mods found here.
-  * [My Mods](https://github.com/R3ap3r0fS0uls/Daedalus-Mods)
-  
 # Installation Instructions
 1. Extract V1.zip and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64;
 2. Then, in that same folder, create a folder and call it "mods", this is where you'll put .dll mods.
+
+# Where To Find Mods
+Keep in mind, for now the only mods you'll be able to use are mods found here.
+  * [My Mods](https://github.com/R3ap3r0fS0uls/Daedalus-Mods)
 
 # Notes
 * The mod loader is not currently supported in dx12, so when starting Icarus, select dx11.
