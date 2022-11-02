@@ -1,5 +1,5 @@
 # Installation Instructions
-1. Extract V1.zip and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64;
+1. Extract V1.1.zip and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64;
 2. Then, in that same folder, create a folder and call it "mods", this is where you'll put .dll mods (Not xinput.dll or daedalus.dll).
 
 # Where To Find Mods
