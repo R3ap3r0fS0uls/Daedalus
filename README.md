@@ -1,6 +1,7 @@
 # Installation Instructions
 1. Extract V1.1.zip and copy the contents into (Icarus-Root)/Icarus/Binaries/Win64;
 2. Then, in that same folder, create a folder and call it "mods", this is where you'll put .dll mods (Not xinput.dll or daedalus.dll).
+3. This isn't releated to this mod loader, however some of my mods rely on this.  Create a folder and call it "mods" in (Icarus-Root)/Icarus/Content/Paks.  This is where all mods that have a .pak file extention will go.
 
 # Where To Find Mods
 Keep in mind, for now the only mods you'll be able to use are mods found here.
