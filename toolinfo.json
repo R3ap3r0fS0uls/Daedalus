@@ -1,0 +1,14 @@
+{
+  "tools": [
+    {
+      "name": "Daedalus Loader",
+      "author": "edmiester777 and R3ap3r",
+      "version": "1.2",
+      "compatibility": "all",
+      "description": "Injects dll files into Icarus.",
+      "fileType": "ZIP",
+      "fileURL": "https://github.com/R3ap3r0fS0uls/Daedalus/blob/master/v1.2.zip",
+      "readmeURL": "https://github.com/R3ap3r0fS0uls/Daedalus/blob/master/README.md"
+    }
+  ]
+}
