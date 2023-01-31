@@ -3,16 +3,8 @@
 2. Then, in that same folder, create a folder and call it "mods", this is where you'll put .dll mods (Not xinput.dll or daedalus.dll).
 3. This isn't releated to this mod loader, however some of my mods rely on this.  Create a folder and call it "mods" in (Icarus-Root)/Icarus/Content/Paks.  This is where all mods that have a .pak file extention will go.
 
-# Where To Find Mods
-Keep in mind, for now the only mods you'll be able to use are mods found here.
-  * [My Mods](https://github.com/R3ap3r0fS0uls/Daedalus-Mods)
-
 # Notes
 * The mod loader is not currently supported in dx12, so when starting Icarus, select dx11.
-
-# Daedalus
-A modloader for [Icarus](https://store.steampowered.com/app/1149460/ICARUS/) for blueprint and
-C++ based mods. Still heavily under construction, see below for proper accredidation and info.
 
 # Credit
 This project was originally a fork of an old version of 
