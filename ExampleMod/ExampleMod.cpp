@@ -1,9 +1,10 @@
 #include "ExampleMod.h"
 #include "Utilities/MinHook.h"
-#include <SDK.hpp>
 #include <sdk.h>
 
 //#include "Source.hpp"
+
+using namespace UE4;
 
 BPFUNCTION(WriteToFile)
 {
@@ -94,8 +95,14 @@ void LogOther(int32_t value)
 	Log::Print(std::to_string(value));
 }
 
-void ExampleMod::BeginPlay(UE4::AActor* Actor)
+ABP_IcarusPlayerControllerSurvival_C* controller;
+
+void ExampleMod::BeginPlay(AActor* Actor)
 {
+	if (Actor->GetFullName() == "BlueprintGeneratedClass BP_IcarusPlayerControllerSurvival.BP_IcarusPlayerControllerSurvival_C")
+	{
+		controller = (ABP_IcarusPlayerControllerSurvival_C*)Actor;
+	}
 }
 
 void ExampleMod::PostBeginPlay(std::wstring ModActorName, UE4::AActor* Actor)
@@ -115,25 +122,11 @@ void ExampleMod::DX11Present(ID3D11Device* pDevice, ID3D11DeviceContext* pContex
 
 void ExampleMod::OnModMenuButtonPressed()
 {
-	UE4::UObject* UInventory = *(UE4::UObject**)(actor + 0x8e8);
+	AIcarusPlayerCharacterSpace* cha = (AIcarusPlayerCharacterSpace*)GetGlobalPlayerCharacter();
 
-	UE4::UObject* FInventorySlotsFastArray = (UE4::UObject*)(UInventory + 0xe8);
-
-	struct UE4::TArray<FInventorySlot> Slots = *(struct UE4::TArray<FInventorySlot>*)(FInventorySlotsFastArray + 0x108);
-
-	for (int32_t i = 0; i < Slots.Count; i++)
-	{
-		Log::Print(Slots[i].ItemData.ItemStaticData.RowName.GetName());
-	}
+	Log::Print(std::to_string(cha->GetIcarusUID()));
 }
 
 void ExampleMod::DrawImGui()
 {
-	using namespace icarus;
-	AIcarusPlayerCharacter* player = AIcarusPlayerCharacter::GetPlayerController();
-
-	if (player)
-	{
-		Log::Info("Found player controller at %x", player);
-	}
 }

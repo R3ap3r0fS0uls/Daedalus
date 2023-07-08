@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Hooks.cpp" />
-    <ClCompile Include="Icarus_classes.cpp" />
     <ClCompile Include="ImGui\imgui.cpp" />
     <ClCompile Include="ImGui\imgui_demo.cpp" />
     <ClCompile Include="ImGui\imgui_draw.cpp" />
@@ -30,7 +29,6 @@
   <ItemGroup>
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="Hooks.h" />
-    <ClInclude Include="Icarus_classes.h" />
     <ClInclude Include="ImGui\imconfig.h" />
     <ClInclude Include="ImGui\imgui.h" />
     <ClInclude Include="ImGui\imgui_impl_dx11.h" />
@@ -55,13 +53,7 @@
     <ClInclude Include="DaedalusLoader\Utilities\MinHook.h" />
     <ClInclude Include="DaedalusLoader\Utilities\Pattern.h" />
     <ClInclude Include="DaedalusLoader\Utilities\Version.h" />
-    <ClInclude Include="SDK.hpp">
-      <Filter>sdk</Filter>
-    </ClInclude>
     <ClInclude Include="..\sdk\sdk.h">
-      <Filter>sdk</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\sdk-helper.h">
       <Filter>sdk</Filter>
     </ClInclude>
   </ItemGroup>
